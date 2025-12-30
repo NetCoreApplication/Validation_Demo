@@ -23,8 +23,9 @@ namespace Validation_Demo.Controllers
         public IActionResult CreateProductValidate([FromBody] CreateProductReqValidateObject request)
         {
             // If the model is valid, proceed with creating the product
-            return Ok("Validation SuccessFul");
+           // return Ok("Validation SuccessFul");
             //   return Ok(new { Message = "Product created successfully", Product = request });
+            throw new Exception("hatiş");
         }
 
         [HttpPost("create_with_novalidation")]

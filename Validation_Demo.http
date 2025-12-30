@@ -45,9 +45,10 @@ Content-Type: application/json
 
 
 {
-   "Name": " ",
-  "Price": "119.99",
-  "Description": "Git kumda top oyna..."
+   "Name": "dd",
+  "Price": "0.03",
+  "Description": "Git kumda top oyna...",
+  "Email":"a@a.com"
 }
 
 ###
