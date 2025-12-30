@@ -1,0 +1,53 @@
+@Validation_Demo_HostAddress = http://localhost:5285
+
+GET {{Validation_Demo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{Validation_Demo_HostAddress}}/weatherforecast
+
+###
+
+GET {{Validation_Demo_HostAddress}}/[api/controller]
+
+###
+
+GET {{Validation_Demo_HostAddress}}/api/product
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/product/create
+Content-Type: application/json
+
+{
+   "Name": "",
+  "Price": "0.001",
+  "Description": "Git kumda top oyna..."
+}
+
+### 
+
+POST {{Validation_Demo_HostAddress}}/api/product/create_with_novalidation
+Content-Type: application/json
+
+{
+   "Name": "New Product",
+  "Price": "a.99",
+  "Description": "This is a new product."
+}
+
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/product/create_ivalidate
+Content-Type: application/json
+
+
+{
+   "Name": " ",
+  "Price": "119.99",
+  "Description": "Git kumda top oyna..."
+}
+
+###
