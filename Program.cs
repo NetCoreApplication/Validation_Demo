@@ -1,5 +1,8 @@
 
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Validation_Demo
 {
@@ -19,7 +22,7 @@ namespace Validation_Demo
 
                      var problem = new ValidationProblemDetails
                      {
-                         Title = "Validasyon Patladu",
+                         Title = "Global Cs den -- Validasyon Patladu",
                          Status = StatusCodes.Status400BadRequest,
                          Type = "https://httpstatuses.com/400",
                          Detail = "Gelen istek validasyon kurallarina uymuyor. Lutfen isteginizi kontrol ediniz.",
@@ -46,8 +49,12 @@ namespace Validation_Demo
 
                  }
                 );
-          //  builder.Services.AddValidation();
+           
+            builder.Services.AddValidation();
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddValidatorsFromAssemblyContaining<Validators.CreateProductRequestValidator>();
             // Add validation services
+
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
             

@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/tests/">
+    <Project Path="../Validation_Demo_Test/Validation_Demo_Test.csproj" Id="cade4691-9c7e-42b8-8ac5-507f9a3be907" />
+  </Folder>
   <Project Path="Validation_Demo.csproj" />
 </Solution>

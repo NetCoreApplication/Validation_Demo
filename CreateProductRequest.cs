@@ -8,5 +8,7 @@ namespace Validation_Demo
 
         [Required] public string Description { get; set; }
 
+        [Required] public string Sku { get; set; }
+
     }
 }

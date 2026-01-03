@@ -21,9 +21,9 @@ POST {{Validation_Demo_HostAddress}}/api/product/create
 Content-Type: application/json
 
 {
-   "Name": "",
-  "Price": "0.001",
-  "Description": "Git kumda top oyna..."
+   "Name": "<",
+  "Price": "0.01",
+  "Description": "Git kumda top oyna...<"
 }
 
 ### 
@@ -49,6 +49,31 @@ Content-Type: application/json
   "Price": "0.03",
   "Description": "Git kumda top oyna...",
   "Email":"a@a.com"
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productnew/create_with_json
+Content-Type: application/json
+
+{
+   "Name": "Product with JSON test",
+  "Price": 120000,
+  "Description": "This product is created using JSON.",
+  "Su":"sKU12345"
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productnew/create
+Content-Type: application/json
+
+{
+  "Name": "Product with JSON test",
+  "Price": 0.012, 
+     "Description": "This product is created using JSON. <<<",
+  "Su":"sKU12345",
+  "Email":"volkan@genc.com"
 }
 
 ###
