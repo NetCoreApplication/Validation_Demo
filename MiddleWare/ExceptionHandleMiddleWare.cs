@@ -42,7 +42,7 @@ namespace Validation_Demo.MiddleWare
                 //Development ortamında detaylı hata bilgisi döner
                 payload = new
                 {
-                    title = "Internal Server Error",
+                    title = "Exception Handling Developer  - Internal Server Error",
                     StatusCode = statusCode,
                     detail = exception.Message,
                     instance = context.Request.Path,
@@ -60,7 +60,7 @@ namespace Validation_Demo.MiddleWare
                 // Production: genel/güvenli mesaj
                 payload = new
                 {
-                    title = "Internal Server Error",
+                    title = "Exception Handling Release - Internal Server Error",
                     statusCode,
                     detail = "Beklenmeyen bir hata oluştu.",
                     instance = context.Request.Path,

@@ -69,11 +69,92 @@ POST {{Validation_Demo_HostAddress}}/api/productnew/create
 Content-Type: application/json
 
 {
-  "Name": "Product with JSON test",
-  "Price": 0.012, 
+  "Name": "Product with JSON ",
+  "Price": 10, 
      "Description": "This product is created using JSON. <<<",
   "Su":"sKU12345",
   "Email":"volkan@genc.com"
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/product/create_ivalidate
+Content-Type: application/json
+
+{
+  //CreateProductReqValidateObject
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productfluent/create_skip_fluent
+Content-Type: application/json
+
+{
+  //CreateProductRequest
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productfluent/create_with_json
+Content-Type: application/json
+
+{
+  //JsonElement
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productfluent/create_with_ruleset
+Content-Type: application/json
+
+{
+  //CreateProductRequest
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productfluent/create_manual_ruleset
+Content-Type: application/json
+
+{
+  //CreateProductRequest
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productfluent/create
+Content-Type: application/json
+
+{
+  "Name": "Product with JSON ",
+  "Price": 10, 
+   "Description": "This product is created using JSON. <<<",
+  "SKU":"SKU12345",
+  "Email":"volkan@genc.com"
+}
+
+###
+
+POST {{Validation_Demo_HostAddress}}/api/productfluent/create_with_error_codes
+Content-Type: application/json
+
+{
+  "name": "product Test",
+  "price": 1000.101,
+  "description": "Short gg hh sdsfsf test",
+  "sku": "InALID"
+}
+
+ 
+###
+  POST {{Validation_Demo_HostAddress}}/api/productfluent/create_with_error_codes
+Content-Type: application/json
+
+{
+  "name": "", 
+  "description": "Short gg hh sdsfsf test"
+   
 }
 
 ###

@@ -11,18 +11,21 @@ namespace Validation_Demo.Validators
             //Name kuralları
             RuleFor(x => x.Name)
                   .NotEmpty().WithMessage("Ürün adı gereklidir ").WithErrorCode("NAME_REQUIRED")
+                  .WithState(_ => new { Severity = Severity.Error, ClientCode = "P1001" })
                   .Length(3, 100).WithMessage("Ürün adı 3 ile 100 karakter arasında olmalıdır").WithErrorCode("NAME_LENGTH")
                   .Must(name => !name.Contains("test", System.StringComparison.OrdinalIgnoreCase)).WithErrorCode("NAME_PROHIBITED_WORD")
                   .WithMessage("Ürün  adı 'test' kelimesini içeremez");
 
             //Price kuralları
             RuleFor(x => x.Price)
+             .NotEmpty().WithMessage("Fiyat boş olamaz").WithErrorCode("PRICE_REQUIRED")
              .GreaterThan(0).WithMessage("Fiyat 0'dan büyük olmalıdır.").WithErrorCode("PRICE_MIN")
              .LessThanOrEqualTo(100_000m).WithMessage("Fiyat kabul edilemeyecek kadar yüksek olamaz.").WithErrorCode("PRICE_MAX")
             // .PrecisionScale(2, 10, true).WithMessage("Fiyat en fazla 2 ondalık basamak içerebilir.").WithErrorCode("PROCE_SCALE");
             //Ondalık hassasiyet kontrölü (en fazla 2 ondalık basamak)
             .Must(price => DecimalScaleIsAtMost(price, 2)).WithMessage("Fiyat en fazla 2 ondalık basamak içerebilir").
-            WithErrorCode("DESCRIPTION_MAX_LENGTH");
+            WithErrorCode("PRICE_SCALE")
+            .WithState(_ => new { Severity = Severity.Warning, ClientCode = "P2211" });
 
          
 
@@ -43,7 +46,7 @@ namespace Validation_Demo.Validators
 
             //
             RuleFor(x => x.Sku)
-                .Cascade(CascadeMode.Stop)
+                .Cascade(CascadeMode.Continue)
                 .Matches(@"^[A-Z0-9\-]+$").When(x => !string.IsNullOrWhiteSpace(x.Sku))
                 .WithMessage("SKU yalnızca büyük harfler, rakamlar ve tire içerebilir.").WithErrorCode("SKU_FORMAT")
                 .MaximumLength(50).WithMessage("Sku en fazla 50 karakterli olabilir").WithErrorCode("SKU_MAX_LENGTH");
